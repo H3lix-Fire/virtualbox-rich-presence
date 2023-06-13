@@ -87,6 +87,7 @@ class RichPresence:
             machine_list[-1]["name"] = machine_names[-1]
             machine_list[-1]["architecture"] = architecture
             machine_list[-1]["state"] = str(machine_states[-1])
+            machine_list[-1]["raw_state"] = machine_states[-1]
 
             # Iterate through assets and find the correct OS.
             for os in self.assets["operating systems"]:
@@ -129,8 +130,8 @@ class RichPresence:
 
         # Iterate through machine dictionary and find a machine that is online.
         for machine in machine_list:
-
-            if machine["state"] == "FirstOnline":
+            machine_state = virtualbox.library.MachineState(machine["raw_state"]._value - 1)
+            if str(machine_state) == "FirstOnline":
 
                 # Recognize that the user is in a machine.
                 format_dict["machine active"] = True
