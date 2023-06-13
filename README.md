@@ -4,7 +4,7 @@
 
 ## Notice
 
-This project is effectively unmaintanable for me as my new computer has no support for the API used in this project. I may still be able to help with simple issues such as config problems, but any technical reasons it may not be working are hard for me to debug.
+This project was originally created by vidhanio, all I did was fix a bug that made the id of the machine state appear 1 above it's actual state. This is likely due to lists starting at 0, and the id system starting at 1. All I did was modify the return value of the id to be properly set. This project will not be recieving any updates from me, but will remain open for pull requests, issues, etc.
 
 ## Installation
 
